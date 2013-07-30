@@ -144,8 +144,8 @@ window['SVG3D'] = function(frame, cameraPosition, lensZero, lensXAxis, LensYAxis
 		this.render = function(camera, canvas) {
 			var relativeCoordinates = projectPointOntoLens(position, camera);
 			
-			var screenX = relativeCoordinates[0] * canvas.offsetWidth;
-			var screenY = relativeCoordinates[1] * canvas.offsetHeight;
+			var screenX = relativeCoordinates[0] * canvas.width.baseVal.value;
+			var screenY = relativeCoordinates[1] * canvas.height.baseVal.value;
 			
 			if (!element) {
 				element = document.createElementNS(svg, "circle");
@@ -193,10 +193,10 @@ window['SVG3D'] = function(frame, cameraPosition, lensZero, lensXAxis, LensYAxis
 			]
 			
 			var coordinates = [
-				[relativeCoordinates[0][0] * canvas.offsetWidth, relativeCoordinates[0][1] * canvas.offsetWidth],
-				[relativeCoordinates[1][0] * canvas.offsetWidth, relativeCoordinates[1][1] * canvas.offsetWidth],
-				[relativeCoordinates[2][0] * canvas.offsetWidth, relativeCoordinates[2][1] * canvas.offsetWidth],
-				[relativeCoordinates[3][0] * canvas.offsetWidth, relativeCoordinates[3][1] * canvas.offsetWidth]
+				[relativeCoordinates[0][0] * canvas.width.baseVal.value, relativeCoordinates[0][1] * canvas.height.baseVal.value],
+				[relativeCoordinates[1][0] * canvas.width.baseVal.value, relativeCoordinates[1][1] * canvas.height.baseVal.value],
+				[relativeCoordinates[2][0] * canvas.width.baseVal.value, relativeCoordinates[2][1] * canvas.height.baseVal.value],
+				[relativeCoordinates[3][0] * canvas.width.baseVal.value, relativeCoordinates[3][1] * canvas.height.baseVal.value]
 			];
 			
 			if (!element) {
